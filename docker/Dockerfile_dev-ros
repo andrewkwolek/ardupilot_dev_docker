@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
-FROM ros:jazzy-ros-base as main-setup
+ARG ROS-VERSION
+FROM ros:${ROS-VERSION}-ros-base as main-setup
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -30,7 +31,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     default-jre \
     socat \
     ros-dev-tools \
-    ros-jazzy-launch-pytest \
+    ros-${ROS-VERSION}-launch-pytest \
     && apt-get clean \
     && apt-get -y autoremove \
     && apt-get autoclean \
