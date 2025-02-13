@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-ARG ROS-DISTRO
+ARG ROS_DISTRO=humble
 FROM ros:${ROS-DISTRO}-ros-base as main-setup
 
 ENV DEBIAN_FRONTEND=noninteractive
