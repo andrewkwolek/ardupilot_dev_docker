@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 ARG ROS_DISTRO=humble
-FROM ros:${ROS-DISTRO}-ros-base as main-setup
+FROM ros:${ROS_DISTRO}-ros-base as main-setup
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install --no-install-recommends -y \
