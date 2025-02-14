@@ -57,6 +57,7 @@ RUN set -eux; \
 		--disable-pip-version-check \
 		--no-cache-dir \
 		--no-compile \
+        --break-system-packages \
 		"pip==$PYTHON_PIP_VERSION" \
 		"setuptools==$PYTHON_SETUPTOOLS_VERSION" \
 	; \
@@ -64,7 +65,7 @@ RUN set -eux; \
 	\
 	pip --version
 
-RUN python -m pip install --no-cache-dir -U future lxml pexpect flake8 empy==3.3.4 pyelftools tabulate pymavlink pre-commit junitparser
+RUN python -m pip install --no-cache-dir --break-system-packages -U future lxml pexpect flake8 empy==3.3.4 pyelftools tabulate pymavlink pre-commit junitparser
 
 FROM eclipse-temurin:19-jdk-jammy as dds-gen-builder
 
